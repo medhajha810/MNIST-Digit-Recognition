@@ -17,8 +17,30 @@ def preprocess_image(image_path):
 with open("cnn_model.pkl", "rb") as file:
         model = pkl.load(file)
 
-st.title("MNIST Digit Recogonizer")
-st.subheader("Upload image")
+
+import streamlit as st
+
+# Custom title with font size and style
+st.markdown(
+    """
+    <h1 style='text-align: center; color: #00FFFF; font-family: Arial; font-size: 40px;'>
+    MNIST Digit Recognizer
+    </h1>
+    """,
+    unsafe_allow_html=True
+)
+st.markdown(
+    """
+    <h3 style='text-align: center; color: magenta; font-family: Arial; font-size: 30px;'>
+    Upload image
+    </h3>
+    """,
+    unsafe_allow_html=True
+)
+
+
+
+
 img = st.file_uploader("1", label_visibility="collapsed")
 if img is not None:
     st.image(img,width=128)

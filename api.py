@@ -6,6 +6,10 @@ import pickle as pkl
 
 app = FastAPI()
 
+# Load the model once at the start
+with open("cnn_model.pkl", "rb") as file:
+    model = pkl.load(file)
+
 # Function to preprocess the uploaded image
 def preprocess_image(image_path):
     # Open the image
